@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { useState, useTransition } from "react"
-import { Button } from "./ui/button"
+import { useState, useTransition } from "react";
+import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { createNewDocument } from "@/actions/actions";
 
@@ -13,10 +13,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Skeleton } from "@/components/ui/skeleton"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function NewDocumentButton() {
   // const [isPending, startTransition] = useTransition();
@@ -27,14 +27,14 @@ function NewDocumentButton() {
 
   const router = useRouter();
 
-  const handleCreateNewDocument = async() => {    
-    setCreate(true)
-    if (name.length > 2){
+  const handleCreateNewDocument = async () => {
+    setCreate(true);
+    if (name.length > 2) {
       try {
         const { id } = await createNewDocument(name);
         router.push(`/repo/${id}`);
       } catch (err) {
-        alert("NOT A REPO!")
+        alert("NOT A REPO!");
         router.push(`/`);
       }
     }
@@ -43,18 +43,18 @@ function NewDocumentButton() {
     setCreate(false);
 
     // startTransition(async() => {
-      
+
     //   // const { id } = await createNewDocument("rohanrepo");
     //   // router.push(`/repo/${id}`);
     // })
-  }
+  };
 
   return (
     <div>
-      <Button 
+      <Button
         onClick={() => setOpen(true)}
         disabled={open}
-        className="text-[24px] p-8 w-[300px] tracking-[0.2rem]"
+        className="text-md p-6 w-[200px] tracking-[0.2rem]"
       >
         {open ? "Adding.." : "Add New Repo"}
       </Button>
@@ -71,33 +71,33 @@ function NewDocumentButton() {
             <div className="grid grid-cols-4 items-center gap-4">
               {create ? (
                 <Skeleton className="h-8 w-[480px]" />
-              ):(
+              ) : (
                 <>
-                <Label htmlFor="name" className="text-right text-[20px]">
-                  Name
-                </Label>
-                <Input
-                  id={name}
-                  defaultValue={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="col-span-3"
-                />
+                  <Label htmlFor="name" className="text-right text-[20px]">
+                    Name
+                  </Label>
+                  <Input
+                    id={name}
+                    defaultValue={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="col-span-3"
+                  />
                 </>
               )}
             </div>
           </div>
-          
-            <Button 
-              type="submit" 
-              onClick={handleCreateNewDocument}
-              disabled={create}
-              className="text-[20px]"
-            >
-              {create ? "Creating..." : "Create"}
-            </Button>
+
+          <Button
+            type="submit"
+            onClick={handleCreateNewDocument}
+            disabled={create}
+            className="text-[20px]"
+          >
+            {create ? "Creating..." : "Create"}
+          </Button>
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }
-export default NewDocumentButton
+export default NewDocumentButton;
