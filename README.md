@@ -1,6 +1,13 @@
 Users can input a GitHub repository name to generate a customized dashboard displaying key metrics, such as pull requests, contributors, commit history, and overall activity.
 This application offers a valuable tool for developers and project managers to gain insights into repository health, identify areas for improvement, and make data-driven decisions
 
+Backend - https://github.com/BiswasSwagatam/Github-Tracks-Backend
+
+Screenshots - 
+![1](https://github.com/user-attachments/assets/3c73963d-ac9b-4e9e-92c5-a071bb2a95b7)
+![2](https://github.com/user-attachments/assets/de880e5c-b1d0-43fd-9ceb-ba0598fd021f)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
